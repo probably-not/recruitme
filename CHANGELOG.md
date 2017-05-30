@@ -11,7 +11,9 @@ So far there have been no releases to the application, so the Changelog will rec
 - LICENSE.md file to give a basic license to the RecruitMe Application
 - CHANGELOG.md file to record all changes to the RecruitMe Application
 - src folder to contain the actual RecruitMe Application code
+- Started the framework for building the RecruitMe User API code which will allow us to begin to search users
 
 ### Changed
 - CHANGELOG.md has been updated to include all relevant data
 - RecruitMe.sublime-project file has been updated slightly to follow symlinks in the project
+- Folder Structure to create the entire folder structure for the Spring REST project
