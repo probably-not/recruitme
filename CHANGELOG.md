@@ -1,9 +1,15 @@
-<a name="RecruitMe">RecruitMe</a>
-#  (2017-05-30)
+# Change Log
+All notable changes to this project will be documented in this file.
 
-* Added a blank README file to begin the repository ([97489f6](https://gitlab.com/daVinciCEB/RecruitMe/commit/97489f6))
-* Added a rough README, a .gitignore file set up for SublimeText, and a SublimeText project ([70cab55](https://gitlab.com/daVinciCEB/RecruitMe/commit/70cab55))
-* Added quick license, will need to review this later with an actual lawyer ([dca4783](https://gitlab.com/daVinciCEB/RecruitMe/commit/dca4783))
+The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+So far there have been no releases to the application, so the Changelog will record everything that is being added and changed.
 
+## [Unreleased]
+### Added
+- README.md file to explain the purpose of the RecruitMe Application
+- LICENSE.md file to give a basic license to the RecruitMe Application
+- CHANGELOG.md file to record all changes to the RecruitMe Application
 
+### Changed
+- CHANGELOG.md has been updated to include all relevant data
