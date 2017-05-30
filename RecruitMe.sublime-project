@@ -2,7 +2,9 @@
 	"folders":
 	[
 		{
-			"path": "."
+			"name": "RecruitMe",
+			"path": ".",
+			"follow_symlinks": true
 		}
 	],
 	"settings":
