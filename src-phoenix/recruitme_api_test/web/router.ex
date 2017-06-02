@@ -19,14 +19,16 @@ defmodule RecruitmeApiTest.Router do
   #   get "/", PageController, :index
   # end
 
-  # Other scopes may use custom stacks.
   scope "/api/v1", RecruitmeApiTest do
     pipe_through :api
 
+    # Jobs REST Routes
     get "/jobs", JobController, :index
     get "/jobs/:id", JobController, :show
     post "/jobs", JobController, :create
     put "/jobs/:id", JobController, :update
     delete "/jobs/:id", JobController, :delete
+
+    
   end
 end
