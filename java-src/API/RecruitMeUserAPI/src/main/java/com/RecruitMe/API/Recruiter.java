@@ -1,5 +1,6 @@
 package com.RecruitMe.API;
-import org.springframework.data.annotation.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 /**
  * The Recruiter class is used to define Recruiters on RecruitMe.
@@ -7,7 +8,7 @@ import org.springframework.data.annotation.Id;
  * @author cobybenveniste
  */
 public class Recruiter {
-	@Id private String id;
+	@Id @GeneratedValue private Long id;
 	private String firstName;
 	private String lastName;
 	private String company;
