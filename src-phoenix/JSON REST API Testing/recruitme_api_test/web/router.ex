@@ -28,6 +28,7 @@ defmodule RecruitmeApiTest.Router do
     post "/jobs", JobController, :create
     put "/jobs/:id", JobController, :update
     delete "/jobs/:id", JobController, :delete
+    delete "/jobs", JobController, :delete_all
 
     
   end

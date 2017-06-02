@@ -69,13 +69,19 @@ defmodule RecruitmeApiTest.JobController do
   end
 
   # Private Function
-  # Perform the update on a specified job's parameters
+  # Perform the delete on a specified job
   defp perform_delete(conn, job) do
-	case Repo.delete(job) do
-		{:ok, job} -> json conn |> put_status(:ok), %{acknowledged: ["Job Posting Deleted"] }
-		{:error, _job} -> json conn |> put_status(:bad_request), %{errors: ["Unable To Delete Job Posting"] }
-	end
+  	case Repo.delete(job) do
+  		{:ok, job} -> json conn |> put_status(:ok), %{acknowledged: ["Job Posting Deleted"] }
+  		{:error, _job} -> json conn |> put_status(:bad_request), %{errors: ["Unable To Delete Job Posting"] }
+  	end
   end
 
+  # Delete all jobs
+  def delete_all(conn, _params) do
+    jobs = Repo.all(RecruitmeApiTest.Job)
+    Enum.each(jobs, fn(job) -> Repo.delete(job) end)
+    json conn |> put_status(:ok), %{acknowledged: ["All Job Postings Deleted"] }
+  end
 
 end
