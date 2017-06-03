@@ -62,4 +62,5 @@ defmodule RecruitmeLocationSearchTest.UserController do
     |> put_flash(:info, "User deleted successfully.")
     |> redirect(to: user_path(conn, :index))
   end
+
 end

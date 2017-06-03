@@ -5,7 +5,7 @@ defmodule RecruitmeLocationSearchTest.Repo.Migrations.CreateUser do
     create table(:users) do
       add :name, :string
       add :email, :string
-      add :location, :geometry
+      add :location, :geography
 
       timestamps()
     end
