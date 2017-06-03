@@ -20,18 +20,18 @@ Phase 1 will be developing the Backend API, which will be built using the [Phoen
 
 - [ ] Data Model needs to be set up (#2)
 - [ ] API needs to be created with full JSON REST (#3)
-- [ ] Users will be able to login and logout
-- [ ] Users will have various roles available to them (JobSeeker, Recruiter, *Premium JobSeeker*, *Premium Recruiter*)
-- [ ] If a JobSeeker signs in, the API will return Jobs within the specified radius of the JobSeeker
-- [ ] If a Recruiter signs in, they will be able to select which Job they are looking at, and then see the relevant JobSeekers
-- [ ] JobSeekers should be able to like or dislike Jobs
-- [ ] Liked Jobs should go to the JobSeeker's saved Jobs
-- [ ] Disliked Jobs should be hidden from the JobSeeker
-- [ ] Recruiters should be able to like or dislike JobSeekers for each Job that they have listed
-- [ ] Liked JobSeekers should go to the Recruiter's saved JobSeekers
-- [ ] Disliked JobSeekers should be hidden from the Recruiter for this specific Job
-- [ ] Each JobSeeker will have a Match Percentage calculated for each Job they see
-- [ ] Each Job will have a Match Percentage calculated for each JobSeeker they see
+- [ ] Users will be able to login and logout (#4)
+- [ ] Users will have various roles available to them (JobSeeker, Recruiter, *Premium JobSeeker*, *Premium Recruiter*) (#5)
+- [ ] If a JobSeeker signs in, the API will return Jobs within the specified radius of the JobSeeker (#6)
+- [ ] If a Recruiter signs in, they will be able to select which Job they are looking at, and then see the relevant JobSeekers (#6)
+- [ ] JobSeekers should be able to like or dislike Jobs (#7)
+- [ ] Liked Jobs should go to the JobSeeker's saved Jobs (#7)
+- [ ] Disliked Jobs should be hidden from the JobSeeker (#7)
+- [ ] Recruiters should be able to like or dislike JobSeekers for each Job that they have listed (#7)
+- [ ] Liked JobSeekers should go to the Recruiter's saved JobSeekers (#7)
+- [ ] Disliked JobSeekers should be hidden from the Recruiter for this specific Job (#7)
+- [ ] Each JobSeeker will have a Match Percentage calculated for each Job they see (#8)
+- [ ] Each Job will have a Match Percentage calculated for each JobSeeker they see (#8)
 
 ### Phase 2: Frontend Application Development
 
