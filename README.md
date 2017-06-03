@@ -2,11 +2,11 @@
 
 RecruitMe is an application that will allow job seekers and recruiters to connect in a more user friendly fashion. Think Tinder, but for jobs.
 
-***JobSeekers*** '''(people looking for jobs)''' will be able to set up their profiles with what skills they have, what their education level is, and any previous experience they may have, along with a distance radius to show how far away they are willing to look for a job. Their location will be automatically set from their location services on their phone/tablet/computer (constantly updating as the app is turned on). Once their profiles are set up, RecruitMe will show the jobs that are within the radius that they have chosen, along with a "Match Percentage" to show how well the job matches their profile. The higher the percentage, the more the job matches the JobSeeker's preferences.
+**JobSeekers** *(people looking for jobs)* will be able to set up their profiles with what skills they have, what their education level is, and any previous experience they may have, along with a distance radius to show how far away they are willing to look for a job. Their location will be automatically set from their location services on their phone/tablet/computer (constantly updating as the app is turned on). Once their profiles are set up, RecruitMe will show the jobs that are within the radius that they have chosen, along with a "Match Percentage" to show how well the job matches their profile. The higher the percentage, the more the job matches the JobSeeker's preferences.
 
-***Recruiters*** '''(people looking for candidates for jobs)''' will be able to set up various jobs on their account, and see what JobSeekers have matched with the jobs that they have set up.
+**Recruiters** *(people looking for candidates for jobs)* will be able to set up various jobs on their account, and see what JobSeekers have matched with the jobs that they have set up.
 
-***Jobs*** will belong to Recruiters. Each job will have a set of skills, a preferred education level, preferred previous experience, and the location of the office that the job is referring to.
+**Jobs** will belong to Recruiters. Each job will have a set of skills, a preferred education level, preferred previous experience, and the location of the office that the job is referring to.
 
 ## Development
 
@@ -21,7 +21,7 @@ Phase 1 will be developing the Backend API, which will be built using the [Phoen
 - [ ] Data Model needs to be set up (#2)
 - [ ] API needs to be created with full JSON REST (#3)
 - [ ] Users will be able to login and logout
-- [ ] Users will have various roles available to them (JobSeeker, Recruiter, '''Premium JobSeeker''', '''Premium Recruiter''')
+- [ ] Users will have various roles available to them (JobSeeker, Recruiter, *Premium JobSeeker*, *Premium Recruiter*)
 - [ ] If a JobSeeker signs in, the API will return Jobs within the specified radius of the JobSeeker
 - [ ] If a Recruiter signs in, they will be able to select which Job they are looking at, and then see the relevant JobSeekers
 - [ ] JobSeekers should be able to like or dislike Jobs
