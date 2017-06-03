@@ -10,7 +10,7 @@ RecruitMe is an application that will allow job seekers and recruiters to connec
 
 ## Development
 
-RecruitMe will be built in two separate phases: Phase 1 (Backend API Development) and Phase 2 (Frontend Application Development)
+RecruitMe will be built in two separate phases: [Phase 1 (Backend API Development)](README.md#phase-1-backend-api-development) and [Phase 2 (Frontend Application Development)](README.md#phase-2-frontend-application-development)
 
 ### Phase 1: Backend API Development
 
