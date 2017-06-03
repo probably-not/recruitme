@@ -14,7 +14,7 @@ RecruitMe will be built in two separate phases: Phase 1 (Backend API Development
 
 ### Phase 1: Backend API Development
 
-Phase 1 will be developing the Backend API, which will be built using the [Phoenix Framework](http://phoenixframework.com/). The API is being built with speed and scalability in mind, hence using the [Phoenix Framework](http://www.phoenixframework.org/blog/the-road-to-2-million-websocket-connections).
+Phase 1 will be developing the Backend API, which will be built using the [Phoenix Framework](http://phoenixframework.org/). The API is being built with speed and scalability in mind, hence using the [Phoenix Framework](http://www.phoenixframework.org/blog/the-road-to-2-million-websocket-connections).
 
 #### API TODOs
 
