@@ -35,7 +35,7 @@ Phase 1 will be developing the Backend API, which will be built using the [Phoen
 
 ### Phase 2: Frontend Application Development
 
-Phase 2 will be developing the native applications for each platform that RecruitMe will be used on. The aim is to create an Android application, an iOS application, and a Web Application, so that all phone users can use the platform. Since [Phase 1](README.md#Phase-1) will be developing the full backend, the native applications will only need to query the API, so there should be no heavy lifting on the application side.
+Phase 2 will be developing the native applications for each platform that RecruitMe will be used on. The aim is to create an Android application, an iOS application, and a Web Application, so that all phone users can use the platform. Since [Phase 1](README.md#phase-1-backend-api-development) will be developing the full backend, the native applications will only need to query the API, so there should be no heavy lifting on the application side.
 
 #### Frontend TODOs
 - [ ] Create Web Application
