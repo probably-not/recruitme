@@ -19,4 +19,14 @@ defmodule RecruitmeLocationJsonTest.User do
     |> cast(params, [:name, :email, :location, :latitude, :longitude])
     |> validate_required([:name, :email, :location, :latitude, :longitude])
   end
+
+
+  defimpl Poison.Encoder, for: RecruitmeLocationJsonTest.User do
+    def encode(model, opts) do
+      model
+        |> Map.take([:name, :id, :email, :latitude, :longitude])
+        |> Poison.Encoder.encode(opts)
+    end
+  end
+  
 end
