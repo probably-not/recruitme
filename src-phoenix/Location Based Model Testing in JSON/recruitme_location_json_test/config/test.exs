@@ -12,6 +12,7 @@ config :logger, level: :warn
 # Configure your database
 config :recruitme_location_json_test, RecruitmeLocationJsonTest.Repo,
   adapter: Ecto.Adapters.Postgres,
+  types: RecruitmeLocationJsonTest.PostgresTypes,
   username: "postgres",
   password: "postgres",
   database: "recruitme_location_json_test_test",

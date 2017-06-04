@@ -20,7 +20,24 @@ defmodule RecruitmeLocationJsonTest.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", RecruitmeLocationJsonTest do
-  #   pipe_through :api
-  # end
+  scope "/api/v1", RecruitmeLocationJsonTest do
+    pipe_through :api
+    # JSON REST Routes for Users
+    get "/users", UserController, :index
+    get "/users/:id", UserController, :show
+    post "/users", UserController, :create
+    put "/users/:id", UserController, :update
+    delete "/users/:id", UserController, :delete
+
+    # JSON REST Routes for Jobs
+    # get "/jobs", JobController, :index
+    # get "/jobs/:id", JobController, :show
+    # post "/jobs", JobController, :create
+    # put "/jobs/:id", JobController, :update
+    # delete "/jobs/_all", JobController, :delete_all
+    # delete "/jobs/:id", JobController, :delete
+
+
+    # resources "/users", UserController, except: [:new, :edit]
+  end
 end
