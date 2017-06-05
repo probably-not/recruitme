@@ -67,7 +67,7 @@ defmodule RecruitmeLocationJsonTest.JobController do
     render(conn, "deleted_all.json", jobs: jobs)
   end
 
-  # Find all Jobs withing a radius in Meters
+  # Find all Jobs withing a radius in meters
   def within(conn, %{"search" => search_params}) do
     point2 = %Geo.Point{coordinates: {search_params["longitude"], search_params["latitude"]}, srid: 4326}
     query = from job in Job, where: st_distance(job.location, ^point2)  < ^search_params["radius"],  select: job

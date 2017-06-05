@@ -60,7 +60,7 @@ defmodule RecruitmeLocationJsonTest.UserController do
     render(conn, "deleted.json", user: user)
   end
 
-  # Find all Users withing a radius in Meters
+  # Find all Users withing a radius in meters
   def within(conn, %{"search" => search_params}) do
     point2 = %Geo.Point{coordinates: {search_params["longitude"], search_params["latitude"]}, srid: 4326}
     query = from user in User, where: st_distance(user.location, ^point2)  < ^search_params["radius"],  select: user
