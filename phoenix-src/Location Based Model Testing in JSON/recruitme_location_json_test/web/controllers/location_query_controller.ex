@@ -25,5 +25,4 @@ defmodule RecruitmeLocationJsonTest.LocationQueryController do
     render(conn, "user_search_results.json", users: users)
   end
 
-
 end
