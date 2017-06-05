@@ -31,8 +31,8 @@ defmodule RecruitmeLocationJsonTest.Router do
     resources "/jobs", JobController, except: [:new, :edit]
 
     # JSON REST Routes for Searching
-    post "/search/jobs", JobController, :within
-    post "/search/users", UserController, :within
+    post "/search/jobs", LocationQueryController, :jobs_within_radius
+    post "/search/users", LocationQueryController, :users_within_radius
 
   end
 end
