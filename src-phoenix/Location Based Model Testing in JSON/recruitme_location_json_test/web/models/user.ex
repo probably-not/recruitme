@@ -1,6 +1,7 @@
 defmodule RecruitmeLocationJsonTest.User do
   use RecruitmeLocationJsonTest.Web, :model
 
+  @derive {Poison.Encoder, only: [:name, :email, :latitude, :longitude]}
   schema "users" do
     field :name, :string
     field :email, :string
@@ -21,12 +22,12 @@ defmodule RecruitmeLocationJsonTest.User do
   end
 
 
-  defimpl Poison.Encoder, for: RecruitmeLocationJsonTest.User do
-    def encode(model, opts) do
-      model
-        |> Map.take([:name, :id, :email, :latitude, :longitude])
-        |> Poison.Encoder.encode(opts)
-    end
-  end
-  
+  # defimpl Poison.Encoder, for: RecruitmeLocationJsonTest.User do
+  #   def encode(model, opts) do
+  #     model
+  #       |> Map.take([:name, :id, :email, :latitude, :longitude])
+  #       |> Poison.Encoder.encode(opts)
+  #   end
+  # end
+
 end

@@ -6,7 +6,6 @@ defmodule RecruitmeLocationJsonTest.JobController do
   import Ecto.Query
   import Geo.PostGIS
 
-
   alias RecruitmeLocationJsonTest.Job
 
   def index(conn, _params) do

@@ -24,11 +24,13 @@ defmodule RecruitmeLocationJsonTest.Router do
     pipe_through :api
 
     # JSON REST Routes for Users
-    get "/users", UserController, :index
-    get "/users/:id", UserController, :show
-    post "/users", UserController, :create
-    put "/users/:id", UserController, :update
-    delete "/users/:id", UserController, :delete
+    resources "/users", UserController, except: [:new, :edit]
+
+    # get "/users", UserController, :index
+    # get "/users/:id", UserController, :show
+    # post "/users", UserController, :create
+    # put "/users/:id", UserController, :update
+    # delete "/users/:id", UserController, :delete
 
     # JSON REST Routes for Jobs (include the delete all option)
     delete "/jobs/_all", JobController, :delete_all
@@ -36,6 +38,7 @@ defmodule RecruitmeLocationJsonTest.Router do
 
     # JSON REST Routes for Searching
     post "/search/jobs", JobController, :within
+    post "/search/users", UserController, :within
 
   end
 end
