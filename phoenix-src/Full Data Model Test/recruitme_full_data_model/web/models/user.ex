@@ -1,6 +1,7 @@
 defmodule RecruitmeFullDataModel.User do
   use RecruitmeFullDataModel.Web, :model
 
+  @derive {Poison.Encoder, only: [:email, :name, :job_seeker, :recruiter]}
   schema "users" do
     field :email, :string
     field :name, :string

@@ -1,6 +1,7 @@
 defmodule RecruitmeFullDataModel.Job do
   use RecruitmeFullDataModel.Web, :model
 
+  @derive {Poison.Encoder, only: [:title, :description, :company, :skills, :education_level, :latitude, :longitude, :recruiter]}
   schema "jobs" do
     field :title, :string
     field :description, :string

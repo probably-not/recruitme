@@ -14,8 +14,8 @@ defmodule RecruitmeFullDataModel.JobSeekerView do
       user_id: job_seeker.user_id,
       skills: job_seeker.skills,
       education_level: job_seeker.education_level,
-      location: job_seeker.location,
       latitude: job_seeker.latitude,
-      longitude: job_seeker.longitude}
+      longitude: job_seeker.longitude,
+      user: render_one(job_seeker.user, RecruitmeFullDataModel.UserView, "user.json")}
   end
 end

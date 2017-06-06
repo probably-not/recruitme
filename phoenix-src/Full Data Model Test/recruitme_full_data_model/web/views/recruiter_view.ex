@@ -11,6 +11,7 @@ defmodule RecruitmeFullDataModel.RecruiterView do
 
   def render("recruiter.json", %{recruiter: recruiter}) do
     %{id: recruiter.id,
-      user_id: recruiter.user_id}
+      user_id: recruiter.user_id,
+      jobs: render_many(recruiter.jobs, RecruitmeFullDataModel.JobView, "job.json")}
   end
 end

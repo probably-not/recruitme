@@ -1,6 +1,7 @@
 defmodule RecruitmeFullDataModel.Recruiter do
   use RecruitmeFullDataModel.Web, :model
 
+  @derive {Poison.Encoder, only: [:user, :jobs]}
   schema "recruiters" do
     belongs_to :user, RecruitmeFullDataModel.User
     has_many :jobs, RecruitmeFullDataModel.Job
