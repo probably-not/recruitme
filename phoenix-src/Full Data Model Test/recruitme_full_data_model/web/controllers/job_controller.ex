@@ -9,14 +9,17 @@ defmodule RecruitmeFullDataModel.JobController do
   end
 
   def create(conn, %{"job" => job_params}) do
-    changeset = Job.changeset(%Job{}, job_params)
+    location_point = %{"location" => %Geo.Point{coordinates: {job_params["longitude"], job_params["latitude"]}, srid: 4326}}
+    new_job_params = Map.merge(job_params, location_point)
+
+    changeset = Job.changeset(%Job{}, new_job_params)
 
     case Repo.insert(changeset) do
       {:ok, job} ->
         conn
         |> put_status(:created)
         |> put_resp_header("location", job_path(conn, :show, job))
-        |> render("show.json", job: job)
+        |> render("show.json", job: Repo.get!(Job, job.id) |> Repo.preload([:recruiter]))
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)
@@ -30,12 +33,15 @@ defmodule RecruitmeFullDataModel.JobController do
   end
 
   def update(conn, %{"id" => id, "job" => job_params}) do
+    location_point = %{"location" => %Geo.Point{coordinates: {job_params["longitude"], job_params["latitude"]}, srid: 4326}}
+    new_job_params = Map.merge(job_params, location_point)
+
     job = Repo.get!(Job, id)
-    changeset = Job.changeset(job, job_params)
+    changeset = Job.changeset(job, new_job_params)
 
     case Repo.update(changeset) do
       {:ok, job} ->
-        render(conn, "show.json", job: job)
+        render(conn, "show.json", job: Repo.get!(Job, job.id) |> Repo.preload([:recruiter]))
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)

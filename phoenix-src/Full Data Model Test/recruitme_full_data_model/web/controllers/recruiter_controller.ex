@@ -2,6 +2,7 @@ defmodule RecruitmeFullDataModel.RecruiterController do
   use RecruitmeFullDataModel.Web, :controller
 
   alias RecruitmeFullDataModel.Recruiter
+  alias RecruitmeFullDataModel.User
 
   def index(conn, _params) do
     recruiters = Repo.all(Recruiter) |> Repo.preload([:user]) |> Repo.preload([:jobs])
@@ -9,14 +10,17 @@ defmodule RecruitmeFullDataModel.RecruiterController do
   end
 
   def create(conn, %{"recruiter" => recruiter_params}) do
-    changeset = Recruiter.changeset(%Recruiter{}, recruiter_params)
+    # changeset = Recruiter.changeset(%Recruiter{}, recruiter_params)
+
+    user = Repo.get(User, recruiter_params["user_id"])
+    changeset = Ecto.build_assoc(user, :recruiter)
 
     case Repo.insert(changeset) do
       {:ok, recruiter} ->
         conn
         |> put_status(:created)
         |> put_resp_header("location", recruiter_path(conn, :show, recruiter))
-        |> render("show.json", recruiter: recruiter)
+        |> render("show.json", recruiter: Repo.get!(Recruiter, recruiter.id) |> Repo.preload([:user]) |> Repo.preload([:jobs]))
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)
@@ -35,7 +39,7 @@ defmodule RecruitmeFullDataModel.RecruiterController do
 
     case Repo.update(changeset) do
       {:ok, recruiter} ->
-        render(conn, "show.json", recruiter: recruiter)
+        render(conn, "show.json", recruiter: Repo.get!(Recruiter, recruiter.id) |> Repo.preload([:user]) |> Repo.preload([:jobs]))
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)

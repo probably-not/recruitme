@@ -20,5 +20,6 @@ defmodule RecruitmeFullDataModel.JobSeeker do
     struct
     |> cast(params, [:skills, :education_level, :location, :latitude, :longitude])
     |> validate_required([:skills, :education_level, :location, :latitude, :longitude])
+    |> put_assoc(:user, RecruitmeFullDataModel.Repo.get(RecruitmeFullDataModel.User, params["user_id"]))
   end
 end
