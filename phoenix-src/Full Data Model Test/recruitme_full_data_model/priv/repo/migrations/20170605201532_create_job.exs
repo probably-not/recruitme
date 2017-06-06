@@ -11,7 +11,7 @@ defmodule RecruitmeFullDataModel.Repo.Migrations.CreateJob do
       add :location, :geography
       add :latitude, :float
       add :longitude, :float
-      add :recruiter_id, references(:recruiters, on_delete: :nothing)
+      add :recruiter_id, references(:recruiters, on_delete: :delete_all)
 
       timestamps()
     end

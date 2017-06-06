@@ -8,7 +8,7 @@ defmodule RecruitmeFullDataModel.Repo.Migrations.CreateJobSeeker do
       add :location, :geography
       add :latitude, :float
       add :longitude, :float
-      add :user_id, references(:users, on_delete: :nothing)
+      add :user_id, references(:users, on_delete: :delete_all)
 
       timestamps()
     end

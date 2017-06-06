@@ -3,7 +3,7 @@ defmodule RecruitmeFullDataModel.Repo.Migrations.CreateRecruiter do
 
   def change do
     create table(:recruiters) do
-      add :user_id, references(:users, on_delete: :nothing)
+      add :user_id, references(:users, on_delete: :delete_all)
 
       timestamps()
     end
