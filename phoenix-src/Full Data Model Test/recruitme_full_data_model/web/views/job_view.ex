@@ -12,13 +12,25 @@ defmodule RecruitmeFullDataModel.JobView do
   def render("job.json", %{job: job}) do
     %{id: job.id,
       recruiter_id: job.recruiter_id,
+      recruiter_name: job.recruiter.user.name,
+      recruiter_email: job.recruiter.user.email,
       title: job.title,
       description: job.description,
       company: job.company,
       skills: job.skills,
       education_level: job.education_level,
       latitude: job.latitude,
-      longitude: job.longitude,
-      recruiter: render_one(job.recruiter, RecruitmeFullDataModel.RecruiterView, "recruiter.json")}
+      longitude: job.longitude}
+  end
+
+  def render("job_small.json", %{job: job}) do
+    %{id: job.id,
+      title: job.title,
+      description: job.description,
+      company: job.company,
+      skills: job.skills,
+      education_level: job.education_level,
+      latitude: job.latitude,
+      longitude: job.longitude}
   end
 end

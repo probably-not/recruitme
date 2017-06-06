@@ -2,7 +2,7 @@ defmodule RecruitmeFullDataModel.JobSeekerController do
   use RecruitmeFullDataModel.Web, :controller
 
   alias RecruitmeFullDataModel.JobSeeker
-  # alias RecruitmeFullDataModel.User
+  alias RecruitmeFullDataModel.User
 
   def index(conn, _params) do
     jobseekers = Repo.all(JobSeeker) |> Repo.preload([:user])
@@ -11,9 +11,9 @@ defmodule RecruitmeFullDataModel.JobSeekerController do
 
   def create(conn, %{"job_seeker" => job_seeker_params}) do
     location_point = %{"location" => %Geo.Point{coordinates: {job_seeker_params["longitude"], job_seeker_params["latitude"]}, srid: 4326}}
-    new_job_seeker_params = Map.merge(job_seeker_params, location_point)
+    user = %{"user" => Repo.get(User, job_seeker_params["user_id"])}
+    new_job_seeker_params = Map.merge(Map.merge(job_seeker_params, location_point), user)
 
-    # user = Repo.get(User, job_seeker_params["user_id"])
     changeset = JobSeeker.changeset(%JobSeeker{}, new_job_seeker_params)
 
     # changeset = Ecto.build_assoc(user, :job_seeker, skills: new_job_seeker_params["skills"], education_level: new_job_seeker_params["education_level"], latitude: new_job_seeker_params["latitude"], longitude: new_job_seeker_params["longitude"], location: new_job_seeker_params["location"])
@@ -38,9 +38,10 @@ defmodule RecruitmeFullDataModel.JobSeekerController do
 
   def update(conn, %{"id" => id, "job_seeker" => job_seeker_params}) do
     location_point = %{"location" => %Geo.Point{coordinates: {job_seeker_params["longitude"], job_seeker_params["latitude"]}, srid: 4326}}
-    new_job_seeker_params = Map.merge(job_seeker_params, location_point)
-    
-    job_seeker = Repo.get!(JobSeeker, id)
+    user = %{"user" => Repo.get(User, job_seeker_params["user_id"])}
+    new_job_seeker_params = Map.merge(Map.merge(job_seeker_params, location_point), user)
+    # new_job_seeker_params = Map.merge(job_seeker_params, location_point)
+    job_seeker = Repo.get!(JobSeeker, id) |> Repo.preload([:user])
     changeset = JobSeeker.changeset(job_seeker, new_job_seeker_params)
 
     case Repo.update(changeset) do

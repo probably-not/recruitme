@@ -20,6 +20,11 @@ defmodule RecruitmeFullDataModel.JobSeeker do
     struct
     |> cast(params, [:skills, :education_level, :location, :latitude, :longitude])
     |> validate_required([:skills, :education_level, :location, :latitude, :longitude])
-    |> put_assoc(:user, RecruitmeFullDataModel.Repo.get(RecruitmeFullDataModel.User, params["user_id"]))
+    |> validate_number(:latitude, greater_than_or_equal_to: -90)
+    |> validate_number(:latitude, less_than_or_equal_to: 90)
+    |> validate_number(:longitude, greater_than_or_equal_to: -180)
+    |> validate_number(:longitude, less_than_or_equal_to: 180)
+    |> put_assoc(:user, params["user"])
+    |> assoc_constraint(:user)
   end
 end

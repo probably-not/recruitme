@@ -10,7 +10,7 @@ defmodule RecruitmeFullDataModel.Router do
 
     resources "/users", UserController, except: [:new, :edit]
     resources "/jobseekers", JobSeekerController, except: [:new, :edit]
-    resources "/recruiters", RecruiterController, except: [:new, :edit]
+    resources "/recruiters", RecruiterController, except: [:new, :edit, :update]
     resources "/jobs", JobController, except: [:new, :edit]
   end
 end

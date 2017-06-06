@@ -10,10 +10,11 @@ defmodule RecruitmeFullDataModel.RecruiterController do
   end
 
   def create(conn, %{"recruiter" => recruiter_params}) do
-    # changeset = Recruiter.changeset(%Recruiter{}, recruiter_params)
+    user = %{"user" => Repo.get(User, recruiter_params["user_id"])}
+    new_recruiter_params = Map.merge(recruiter_params, user)
+    changeset = Recruiter.changeset(%Recruiter{}, new_recruiter_params)
 
-    user = Repo.get(User, recruiter_params["user_id"])
-    changeset = Ecto.build_assoc(user, :recruiter)
+    # changeset = Ecto.build_assoc(user, :recruiter)
 
     case Repo.insert(changeset) do
       {:ok, recruiter} ->
@@ -34,8 +35,10 @@ defmodule RecruitmeFullDataModel.RecruiterController do
   end
 
   def update(conn, %{"id" => id, "recruiter" => recruiter_params}) do
-    recruiter = Repo.get!(Recruiter, id)
-    changeset = Recruiter.changeset(recruiter, recruiter_params)
+    user = %{"user" => Repo.get(User, recruiter_params["user_id"])}
+    new_recruiter_params = Map.merge(recruiter_params, user)
+    recruiter = Repo.get!(Recruiter, id) |> Repo.preload([:user])
+    changeset = Recruiter.changeset(recruiter, new_recruiter_params)
 
     case Repo.update(changeset) do
       {:ok, recruiter} ->

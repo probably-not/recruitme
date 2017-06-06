@@ -16,5 +16,7 @@ defmodule RecruitmeFullDataModel.Recruiter do
     struct
     |> cast(params, [])
     |> validate_required([])
+    |> put_assoc(:user, params["user"])
+    |> assoc_constraint(:user)
   end
 end

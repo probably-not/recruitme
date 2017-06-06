@@ -18,5 +18,7 @@ defmodule RecruitmeFullDataModel.User do
     struct
     |> cast(params, [:email, :name])
     |> validate_required([:email, :name])
+    |> validate_format(:email, ~r/@/)
+    |> unique_constraint(:email)
   end
 end
