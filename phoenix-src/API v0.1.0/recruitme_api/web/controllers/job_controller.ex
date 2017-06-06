@@ -1,8 +1,8 @@
-defmodule RecruitmeFullDataModel.JobController do
-  use RecruitmeFullDataModel.Web, :controller
+defmodule RecruitmeApi.JobController do
+  use RecruitmeApi.Web, :controller
 
-  alias RecruitmeFullDataModel.Job
-  alias RecruitmeFullDataModel.Recruiter
+  alias RecruitmeApi.Job
+  alias RecruitmeApi.Recruiter
 
   def index(conn, _params) do
     jobs = Repo.all(Job) |> Repo.preload([recruiter: :user])
@@ -25,7 +25,7 @@ defmodule RecruitmeFullDataModel.JobController do
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)
-        |> render(RecruitmeFullDataModel.ChangesetView, "error.json", changeset: changeset)
+        |> render(RecruitmeApi.ChangesetView, "error.json", changeset: changeset)
     end
   end
 
@@ -48,7 +48,7 @@ defmodule RecruitmeFullDataModel.JobController do
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)
-        |> render(RecruitmeFullDataModel.ChangesetView, "error.json", changeset: changeset)
+        |> render(RecruitmeApi.ChangesetView, "error.json", changeset: changeset)
     end
   end
 
@@ -59,6 +59,6 @@ defmodule RecruitmeFullDataModel.JobController do
     # it to always work (and if it does not, it will raise).
     Repo.delete!(job)
 
-    send_resp(conn, :no_content, "")
+    render(conn, "deleted.json", job: Repo.get!(Job, job.id) |> Repo.preload([recruiter: :user]))
   end
 end
