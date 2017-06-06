@@ -4,7 +4,7 @@ defmodule RecruitmeFullDataModel.JobSeekerController do
   alias RecruitmeFullDataModel.JobSeeker
 
   def index(conn, _params) do
-    jobseekers = Repo.all(JobSeeker)
+    jobseekers = Repo.all(JobSeeker) |> Repo.preload([:user])
     render(conn, "index.json", jobseekers: jobseekers)
   end
 
@@ -25,7 +25,7 @@ defmodule RecruitmeFullDataModel.JobSeekerController do
   end
 
   def show(conn, %{"id" => id}) do
-    job_seeker = Repo.get!(JobSeeker, id)
+    job_seeker = Repo.get!(JobSeeker, id) |> Repo.preload([:user])
     render(conn, "show.json", job_seeker: job_seeker)
   end
 
