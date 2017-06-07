@@ -24,10 +24,6 @@ $(document).ready(function(){
           else {
             $("#successmessage").html(html);
           }
-        },
-        beforeSend: function()
-        {
-          $("#successmessage").html("<p class='text-center'><img src='css/ajax-loader.gif'></p>")
         }
       });
     }

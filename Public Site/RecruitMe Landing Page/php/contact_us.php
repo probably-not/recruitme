@@ -51,7 +51,7 @@ if (!filter_var($from_email, FILTER_VALIDATE_EMAIL) == true) {
     try {
 
         $mail->Send();
-        echo '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Thanks for requesting access to the beta! We will get back to you as soon as possible!</div><div id="returnVal" style="display:none;">true</div>';
+        echo '<div class="col-sm-8 col-sm-offset-2 text-center wow fadeIn" data-wow-delay="0.2s"><hr  class="line blue"><h3>Thank You!</h3><p>Thanks for requesting access to the beta! We will get back to you as soon as possible!</p></div><div id="returnVal" style="display:none;">true</div>';
 
 
     } catch (phpmailerException $e) {
