@@ -2,7 +2,7 @@ defmodule RecruitmeApi.JobSeekerControllerTest do
   use RecruitmeApi.ConnCase
 
   alias RecruitmeApi.JobSeeker
-  @valid_attrs %{education_level: "some content", latitude: "120.5", location: "some content", longitude: "120.5", skills: []}
+  @valid_attrs %{education_level: "some content", latitude: "120.5", location: %Geo.Point{}, longitude: "120.5", skills: [], user: %RecruitmeApi.User{}}
   @invalid_attrs %{}
 
   setup %{conn: conn} do

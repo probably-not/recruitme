@@ -2,7 +2,7 @@ defmodule RecruitmeApi.RecruiterControllerTest do
   use RecruitmeApi.ConnCase
 
   alias RecruitmeApi.Recruiter
-  @valid_attrs %{}
+  @valid_attrs %{user: %RecruitmeApi.User{}}
   @invalid_attrs %{}
 
   setup %{conn: conn} do
@@ -35,19 +35,6 @@ defmodule RecruitmeApi.RecruiterControllerTest do
 
   test "does not create resource and renders errors when data is invalid", %{conn: conn} do
     conn = post conn, recruiter_path(conn, :create), recruiter: @invalid_attrs
-    assert json_response(conn, 422)["errors"] != %{}
-  end
-
-  test "updates and renders chosen resource when data is valid", %{conn: conn} do
-    recruiter = Repo.insert! %Recruiter{}
-    conn = put conn, recruiter_path(conn, :update, recruiter), recruiter: @valid_attrs
-    assert json_response(conn, 200)["data"]["id"]
-    assert Repo.get_by(Recruiter, @valid_attrs)
-  end
-
-  test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do
-    recruiter = Repo.insert! %Recruiter{}
-    conn = put conn, recruiter_path(conn, :update, recruiter), recruiter: @invalid_attrs
     assert json_response(conn, 422)["errors"] != %{}
   end
 

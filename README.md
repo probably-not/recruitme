@@ -18,8 +18,8 @@ Phase 1 will be developing the Backend API, which will be built using the [Phoen
 
 #### API TODOs
 
-- [ ] Data Model needs to be set up (#2)
-- [ ] API needs to be created with full JSON REST (#3)
+- [x] Data Model needs to be set up (#2)
+- [x] API needs to be created with full JSON REST (#3)
 - [ ] Users will be able to login and logout (#4)
 - [ ] Users will have various roles available to them (JobSeeker, Recruiter, *Premium JobSeeker*, *Premium Recruiter*) (#5)
 - [ ] If a JobSeeker signs in, the API will return Jobs within the specified radius of the JobSeeker (#6)

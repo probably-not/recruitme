@@ -18,7 +18,7 @@ defmodule RecruitmeApi.User do
     struct
     |> cast(params, [:name, :email])
     |> validate_required([:name, :email])
-    |> validate_format(:email, ~r/@/)
+    |> validate_format(:email, ~r/[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,63}/)
     |> unique_constraint(:email)
   end
 end

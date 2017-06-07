@@ -2,7 +2,7 @@ defmodule RecruitmeApi.JobControllerTest do
   use RecruitmeApi.ConnCase
 
   alias RecruitmeApi.Job
-  @valid_attrs %{company: "some content", description: "some content", education_level: "some content", latitude: "120.5", location: "some content", longitude: "120.5", skills: [], title: "some content"}
+  @valid_attrs %{company: "some content", description: "some content", education_level: "some content", latitude: "120.5", location: %Geo.Point{}, longitude: "120.5", skills: [], title: "some content", recruiter: %RecruitmeApi.Recruiter{}}
   @invalid_attrs %{}
 
   setup %{conn: conn} do
@@ -38,7 +38,7 @@ defmodule RecruitmeApi.JobControllerTest do
   test "creates and renders resource when data is valid", %{conn: conn} do
     conn = post conn, job_path(conn, :create), job: @valid_attrs
     assert json_response(conn, 201)["data"]["id"]
-    assert Repo.get_by(Job, @valid_attrs)
+    assert Repo.get_by(Job, @valid_attrs) |> Repo.preload([recruiter: :user])
   end
 
   test "does not create resource and renders errors when data is invalid", %{conn: conn} do

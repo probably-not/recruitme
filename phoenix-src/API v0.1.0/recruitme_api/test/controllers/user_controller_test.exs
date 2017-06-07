@@ -2,8 +2,8 @@ defmodule RecruitmeApi.UserControllerTest do
   use RecruitmeApi.ConnCase
 
   alias RecruitmeApi.User
-  @valid_attrs %{email: "some content", name: "some content"}
-  @invalid_attrs %{}
+  @valid_attrs %{email: "coby.benveniste@gmail.com", name: "some content"}
+  @invalid_attrs %{email: "coby.benveniste@gmail", name: "some content"}
 
   setup %{conn: conn} do
     {:ok, conn: put_req_header(conn, "accept", "application/json")}

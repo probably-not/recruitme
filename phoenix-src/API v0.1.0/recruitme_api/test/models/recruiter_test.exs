@@ -3,7 +3,7 @@ defmodule RecruitmeApi.RecruiterTest do
 
   alias RecruitmeApi.Recruiter
 
-  @valid_attrs %{}
+  @valid_attrs %{user: %RecruitmeApi.User{}}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do
