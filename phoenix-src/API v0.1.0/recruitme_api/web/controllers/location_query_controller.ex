@@ -22,4 +22,8 @@ defmodule RecruitmeApi.LocationQueryController do
     jobseekers = Repo.all(query) |> Repo.preload([:user])
     render(conn, "job_seeker_search_results.json", jobseekers: jobseekers)
   end
+
+  defp check_search_params do
+    
+  end
 end
