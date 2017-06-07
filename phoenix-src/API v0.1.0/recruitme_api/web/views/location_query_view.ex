@@ -9,12 +9,4 @@ defmodule RecruitmeApi.LocationQueryView do
     %{search_results: render_many(jobseekers, RecruitmeApi.JobSeekerView, "job_seeker.json")}
   end
 
-  def render("location_query_error.json", %{errors: errors}) do
-    %{errors: render_many(errors, RecruitmeApi.LocationQueryView, "error.json")}
-  end
-
-  def render("error.json", %{error: error}) do
-    %{error: error}
-  end
-
 end
