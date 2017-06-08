@@ -12,6 +12,7 @@ config :logger, level: :warn
 # Configure your database
 config :recruitme_api, RecruitmeApi.Repo,
   adapter: Ecto.Adapters.Postgres,
+  types: RecruitmeApi.PostgresTypes,
   username: "postgres",
   password: "postgres",
   database: "recruitme_api_test",
