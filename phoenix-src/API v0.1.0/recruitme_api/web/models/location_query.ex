@@ -1,7 +1,7 @@
 defmodule RecruitmeApi.LocationQuery do
   use RecruitmeApi.Web, :model
 
-  @derive {Poison.Encoder, only: [:title, :description, :company, :skills, :education_level, :latitude, :longitude, :recruiter]}
+  @derive {Poison.Encoder, only: [:latitude, :longitude, :radius]}
   schema "locationqueries" do
     field :latitude, :float
     field :longitude, :float

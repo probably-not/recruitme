@@ -3,7 +3,7 @@ defmodule RecruitmeApi.UserTest do
 
   alias RecruitmeApi.User
 
-  @valid_attrs %{email: "coby.benveniste@gmail.com", name: "some content"}
+  @valid_attrs %{email: "coby.benveniste@gmail.com", name: "some content", password: "pa55w0rd"}
   @invalid_attrs %{email: "coby.benveniste@gmail", name: "some content"}
 
   test "changeset with valid attributes" do

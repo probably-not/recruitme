@@ -18,3 +18,7 @@ config :recruitme_api, RecruitmeApi.Repo,
   database: "recruitme_api_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+# Comeonin Config to speed it up just for test purposes
+config :comeonin, :bcrypt_log_rounds, 4
+config :comeonin, :pbkdf2_rounds, 1

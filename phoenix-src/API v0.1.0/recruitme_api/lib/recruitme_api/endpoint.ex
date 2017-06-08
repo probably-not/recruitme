@@ -36,5 +36,6 @@ defmodule RecruitmeApi.Endpoint do
     key: "_recruitme_api_key",
     signing_salt: "mKaPtxHf"
 
+  plug CORSPlug
   plug RecruitmeApi.Router
 end

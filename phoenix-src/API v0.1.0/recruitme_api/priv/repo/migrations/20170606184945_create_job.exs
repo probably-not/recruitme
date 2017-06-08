@@ -3,14 +3,14 @@ defmodule RecruitmeApi.Repo.Migrations.CreateJob do
 
   def change do
     create table(:jobs) do
-      add :title, :string
-      add :description, :string
-      add :company, :string
+      add :title, :string, null: false
+      add :description, :string, null: false
+      add :company, :string, null: false
       add :skills, {:array, :string}
       add :education_level, :string
-      add :latitude, :float
-      add :longitude, :float
-      add :location, :geography
+      add :latitude, :float, null: false
+      add :longitude, :float, null: false
+      add :location, :geography, null: false
       add :recruiter_id, references(:recruiters, on_delete: :delete_all), null: false
 
       timestamps()
