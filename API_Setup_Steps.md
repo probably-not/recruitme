@@ -23,7 +23,7 @@ Postgrex.Types.define(
 - In your `dev.exs`, `prod.secret.exs`, and `test.exs` files, add the line `types: RecruitmeApi.PostgresTypes` after the `adapter` line under the `config` block for the database
 - `mix ecto.gen.migration enable_postgis` to create a migration that enables postgis on migrate
 
-**postgres_types.ex**
+**{{timestamp}}enable_postgis.ex**
 
 ```elixir
 defmodule RecruitmeApi.Repo.Migrations.EnablePostgis do
