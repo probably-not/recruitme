@@ -39,7 +39,7 @@ defmodule RecruitmeApi.Repo.Migrations.EnablePostgis do
 end
 ```
 
-- Add your models, make sure all of the associations are set up, change the `location` field to a `%Geo.Point{}` field in your models and to a `:geography` field in your migrations
+- Add your models, make sure all of the associations are set up, change the `location` field to a `%Geo.Point{}` field in your models and to a `:geography` field in your migrations, make sure we have `null: false` and `delete_all` in the correct places in migrations.
 - `mix phoenix.gen.json --no-migration LocationQuery locationqueries` to generate the LocationQuery model and controller with no migration
 - Edit your changesets in all models to reflect the validations *(get these from the old project)*
 - Edit your controllers to reflect the current necessary routes *(get these from the old project)*
