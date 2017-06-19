@@ -13,6 +13,6 @@ defmodule RecruitmeApi.RecruiterTest do
 
   test "changeset with invalid attributes" do
     changeset = Recruiter.changeset(%Recruiter{}, @invalid_attrs)
-    refute changeset.valid?
+    assert changeset.changes.user == nil
   end
 end

@@ -15,9 +15,9 @@ defmodule RecruitmeApi.RecruiterView do
 
   def render("recruiter.json", %{recruiter: recruiter}) do
     %{id: recruiter.id,
-      user_id: recruiter.user_id,
-      user_name: recruiter.user.name,
-      user_email: recruiter.user.email,
+      #user_id: recruiter.user_id,
+      #user_name: recruiter.user.name,
+      #user_email: recruiter.user.email,
       jobs: render_many(recruiter.jobs, RecruitmeApi.JobView, "job_small.json")}
   end
 end
