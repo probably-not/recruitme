@@ -22,8 +22,7 @@ defmodule RecruitmeApi.JobSeekerControllerTest do
       "education_level" => job_seeker.education_level,
       "latitude" => job_seeker.latitude,
       "longitude" => job_seeker.longitude,
-      "location" => job_seeker.location,
-      "user_id" => job_seeker.user_id}
+      "location" => job_seeker.location}
   end
 
   test "renders page not found when id is nonexistent", %{conn: conn} do
@@ -33,6 +32,8 @@ defmodule RecruitmeApi.JobSeekerControllerTest do
   end
 
   test "creates and renders resource when data is valid", %{conn: conn} do
+    user = Repo.insert!(%RecruitmeApi.User{"name": "coby", "email": "coby.benveniste@gmail.com"})
+    valid_user_attrs = %{education_level: "some content", latitude: "120.5", location: %Geo.Point{}, longitude: "120.5", skills: [], user_id: user.id}
     conn = post conn, job_seeker_path(conn, :create), job_seeker: @valid_attrs
     assert json_response(conn, 201)["data"]["id"]
     assert Repo.get_by(JobSeeker, @valid_attrs)

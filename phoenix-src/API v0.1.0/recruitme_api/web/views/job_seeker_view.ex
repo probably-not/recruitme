@@ -18,9 +18,9 @@ defmodule RecruitmeApi.JobSeekerView do
       skills: job_seeker.skills,
       education_level: job_seeker.education_level,
       latitude: job_seeker.latitude,
-      longitude: job_seeker.longitude,
-      user_id: job_seeker.user_id,
-      user_name: job_seeker.user.name,
-      user_email: job_seeker.user.email}
+      longitude: job_seeker.longitude}
+      #user_id: job_seeker.user_id,
+      #user_name: job_seeker.user.name,
+      #user_email: job_seeker.user.email}
   end
 end
